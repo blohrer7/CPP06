@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 14:47:42 by blohrer           #+#    #+#             */
-/*   Updated: 2026/03/12 14:48:40 by blohrer          ###   ########.fr       */
+/*   Updated: 2026/04/09 07:03:48 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,15 @@ int	main(void)
 
 	raw = Serializer::serialize(originalPtr);
 	std::cout << "Serialized uintptr_t:  " << raw << std::endl;
+	std::cout << "\n";
 
 	deserializedPtr = Serializer::deserialize(raw);
 
 	std::cout << "Deserialized pointer:  " << deserializedPtr << std::endl;
 	std::cout << "Deserialized data.id:  " << deserializedPtr->id << std::endl;
 	std::cout << "Deserialized data.name:" << deserializedPtr->name << std::endl;
-	std::cout << "Deserialized data.value: "
-		<< deserializedPtr->value << std::endl;
+	std::cout << "Deserialized data.value: " << deserializedPtr->value << std::endl;
 
-	if (originalPtr == deserializedPtr)
-		std::cout << "Result: pointers are equal" << std::endl;
-	else
-		std::cout << "Result: pointers are NOT equal" << std::endl;
 
 	return (0);
 }
