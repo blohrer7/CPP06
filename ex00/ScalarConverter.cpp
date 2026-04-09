@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 14:30:12 by blohrer           #+#    #+#             */
-/*   Updated: 2026/03/12 14:30:13 by blohrer          ###   ########.fr       */
+/*   Updated: 2026/04/08 09:15:07 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,8 @@ static void	printChar(double value)
 {
 	if (std::isnan(value) || std::isinf(value)
 		|| value < std::numeric_limits<char>::min()
-		|| value > std::numeric_limits<char>::max())
+		|| value > std::numeric_limits<char>::max()
+		|| value != static_cast<int>(value))
 	{
 		std::cout << "char: impossible" << std::endl;
 		return ;
@@ -195,8 +196,7 @@ static void	printFloat(double value)
 	}
 	else
 	{
-		if (f == static_cast<int>(f))
-			std::cout << std::fixed << std::setprecision(1);
+		std::cout << std::fixed << std::setprecision(1);
 		std::cout << f << "f";
 	}
 	std::cout << std::endl;
@@ -216,8 +216,7 @@ static void	printDouble(double value)
 	}
 	else
 	{
-		if (value == static_cast<int>(value))
-			std::cout << std::fixed << std::setprecision(1);
+		std::cout << std::fixed << std::setprecision(1);
 		std::cout << value;
 	}
 	std::cout << std::endl;
